@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project One</title>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AuWKs9MGdj79ajbAX3YvfI7G0s7E_KyFRUQYmnT3IqBYCANGUF69Pg7Ik32ONfZg"
+      async
+      defer
+    ></script>
+    <script src="assets/config/config.js"></script>
     <script src="assets/js/app.js"></script>
   </head>
 
@@ -14,11 +22,22 @@
         <div>
           <div class="topnav">
             <a class="active" href="#home">Home</a>
-            <input id="searchQuery" type="text" placeholder="Search.." />
+            <input id="searchQueryCity" type="text" placeholder="City" /><select
+              id="searchQueryState"
+              name="cars"
+              placeholder="State"
+            >
+              <option value="AL">Alabama</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+            </select>
             <button id="searchSubmit">Search</button>
           </div>
         </div>
-        <div></div>
+        <div>
+          <div id="parkMap"></div>
+        </div>
       </div>
     </div>
   </body>

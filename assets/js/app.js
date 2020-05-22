@@ -1,25 +1,68 @@
-function parseInput(place) {
-  if (place.match(/[a-z]/i) == null) {
-    return;
-  }
-  place = place.trim();
-  place = place.toLowerCase();
+var retrievedQuery = false;
 
-  var comma = place.indexOf(",");
-  var city = place.slice(0, comma);
-  var state = place.slice(comma, place.length);
+function getMap(searchGeocode) {
+  console.log("Ran getMap function");
+  var centerText =
+    "new Microsoft.Maps.Location(" +
+    searchGeocode[0] +
+    "," +
+    searchGeocode[1] +
+    ")";
 
-  return [city, state];
+  console.log(centerText);
+
+  var map = new Microsoft.Maps.Map("#parkMap", {
+    credentials: config.BING_MAPS_API,
+    center: centerText,
+    mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+    zoom: 10,
+  });
+}
+
+function geocode(city, state) {
+  var geocodeURL =
+    "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=" +
+    state +
+    "&locality=" +
+    city +
+    "&key=" +
+    config.BING_MAPS_API;
+
+  $.ajax({
+    url: geocodeURL,
+    method: "GET",
+  }).then(function (response) {
+    var geocode =
+      response.resourceSets[0].resources[0].geocodePoints[0].coordinates;
+
+    console.log(geocode);
+
+    retrievedQuery = true;
+    return geocode;
+  });
 }
 
 $(document).ready(function () {
   $("#searchSubmit").on("click", function () {
     event.preventDefault();
 
-    var newSearch = $("#searchQuery").val().trim();
+    var city = $("#searchQueryCity").val().trim();
+    city = city.toLowerCase();
+    var state = $("#searchQueryState").val().trim();
 
-    newSearch = parseInput(newSearch);
+    console.log(city + ", " + state);
 
-    console.log(newSearch);
+    var searchGeocode = geocode(city, state);
+
+    console.log("Searching for city..");
+
+    if (retrievedQuery === true) {
+      retrievedQuery = false;
+      console.log(searchGeocode);
+      getMap(searchGeocode);
+    }
+
+    var fruit = ["kiwi", "orange"];
+    console.log(fruit);
   });
 });
