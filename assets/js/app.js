@@ -1,5 +1,12 @@
+/* This is used to ensure the getMap function is not
+ * added until the coordinates are retrieved from
+ * BingMaps
+ * */
 var retrievedQuery = false;
 
+/* Function takes in coordinates and creates the
+ * BingMaps based off them.
+ */
 function getMap(searchGeocode) {
   console.log("Ran getMap function");
   var centerText =
@@ -19,6 +26,10 @@ function getMap(searchGeocode) {
   });
 }
 
+/* This takes in the inputted city and state and
+ * sends it to Bing Maps to get the coordinates.
+ * Returns the coordinates
+ */
 function geocode(city, state) {
   var geocodeURL =
     "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=" +
@@ -42,7 +53,14 @@ function geocode(city, state) {
   });
 }
 
+/* All functions that begin when the HTML page has
+ * loaded will go below
+ */
 $(document).ready(function () {
+  /* When the search button is clicked, it takes
+   * the searchbar input to "city" and the drop
+   * down value to the state.
+   */
   $("#searchSubmit").on("click", function () {
     event.preventDefault();
 
@@ -52,17 +70,17 @@ $(document).ready(function () {
 
     console.log(city + ", " + state);
 
+    // Sets coordinates of location to searchGeocode
     var searchGeocode = geocode(city, state);
 
-    console.log("Searching for city..");
+    /* This ensures the program does not run
+     * getMap function until the geocode has loaded
+     */
 
     if (retrievedQuery === true) {
       retrievedQuery = false;
       console.log(searchGeocode);
       getMap(searchGeocode);
     }
-
-    var fruit = ["kiwi", "orange"];
-    console.log(fruit);
   });
 });
