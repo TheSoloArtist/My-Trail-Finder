@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project One</title>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  
     <script
       type="text/javascript"
       src="http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AuWKs9MGdj79ajbAX3YvfI7G0s7E_KyFRUQYmnT3IqBYCANGUF69Pg7Ik32ONfZg"
@@ -14,14 +16,24 @@
     ></script>
     <script src="assets/config/config.js"></script>
     <script src="assets/js/app.js"></script>
+    <link rel="stylesheet" href="./assets/style.css">
   </head>
 
-  <body>
-    <div>
-      <div>
-        <div>
-          <div class="topnav">
-            <a class="active" href="#home">Home</a>
+<body>
+    <div class="wrapper1 mt-5">
+        <div class="row">
+            <div class="container1 ml-5">
+                <div class="col-md-12">
+                    <div class="park-finder">
+                        <h3>My Park Finder</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container2 ml-5">
+                <div class="col-md-12">
+                    <div class="search-park">
+                        <h3>Search Local and State Parks</h3>
+      
             <input id="searchQueryCity" type="text" placeholder="City" /><select
               id="searchQueryState"
               name="cars"
@@ -33,12 +45,26 @@
               <option value="CO">Colorado</option>
             </select>
             <button id="searchSubmit">Search</button>
-          </div>
+ 
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div>
-          <div id="parkMap"></div>
-        </div>
-      </div>
+
     </div>
-  </body>
+
+  <div id="parkMap"></div>
+      
+
+   
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+  
+</body>
+
 </html>
+
