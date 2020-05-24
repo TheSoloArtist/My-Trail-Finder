@@ -1,6 +1,14 @@
+/* This is used to ensure the getMap function is not
+ * added until the coordinates are retrieved from
+ * BingMaps
+ * */
 var retrievedQuery = false;
 var latitude = null;
 var longitude = null;
+
+/* Function takes in coordinates and creates the
+ * BingMaps based off them.
+ */
 function getMap(searchGeocode) {
   console.log("Ran getMap function");
   var centerText =
@@ -20,6 +28,10 @@ function getMap(searchGeocode) {
   });
 }
 
+/* This takes in the inputted city and state and
+ * sends it to Bing Maps to get the coordinates.
+ * Returns the coordinates
+ */
 function geocode(city, state) {
   var geocodeURL =
     "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=" +
@@ -45,7 +57,14 @@ function geocode(city, state) {
   });
 }
 
+/* All functions that begin when the HTML page has
+ * loaded will go below
+ */
 $(document).ready(function () {
+  /* When the search button is clicked, it takes
+   * the searchbar input to "city" and the drop
+   * down value to the state.
+   */
   $("#searchSubmit").on("click", function () {
     event.preventDefault();
 
@@ -55,9 +74,12 @@ $(document).ready(function () {
 
     console.log(city + ", " + state);
 
+    // Sets coordinates of location to searchGeocode
     var searchGeocode = geocode(city, state);
 
-    console.log("Searching for city..");
+    /* This ensures the program does not run
+     * getMap function until the geocode has loaded
+     */
 
     if (retrievedQuery === true) {
       retrievedQuery = false;
@@ -69,13 +91,6 @@ $(document).ready(function () {
     console.log(fruit);
 
 
-    //   var stickItToPage= `<a class="weatherwidget-io" href="https://forecast7.com/en/34d05n118d24/${city}/?unit=us"
-    //   data-label_1="LOS ANGELES" data-label_2="WEATHER" data-days="3" data-theme="kiwi">${city} weather</a>
-    // <script>
-    //   !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
-    // </script>`
-    // $(".weatherShow").append(stickItToPage)
-    // });
   });
 
 });

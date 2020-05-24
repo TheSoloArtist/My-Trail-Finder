@@ -4,11 +4,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;  
-
 }
-
-
-
 
 .container1 {
   width:250px;
@@ -17,8 +13,8 @@ body {
   border-width: 8px;
   border-color: white;
   padding-top: 20px;
-
 }
+
 .container2 {
   width: 75%;
   background-color:#e4e338;
@@ -26,7 +22,6 @@ body {
   border-width: 8px;
   border-color: white;
   padding-bottom: 7px;
-
 }
 
 .container3{
@@ -36,9 +31,8 @@ body {
   border-width: 8px;
   border-color: white;
   color: white;
-   
-
 }
+
 .restaurant{
   margin-top:15px;
   width: 250px;
@@ -46,10 +40,8 @@ body {
   border-style: solid;
   border-width: 8px;
   border-color: white;
-  
-
-
 }
+
 .parkMap {
   margin-top: 15px;
   width: 600px;
@@ -59,6 +51,7 @@ body {
   border-width: 5px;
   border-color: white;
 }
+
 .Pleasechangeme{
   background-color: #aae241;
 }
