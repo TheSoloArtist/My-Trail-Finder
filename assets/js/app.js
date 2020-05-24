@@ -3,6 +3,8 @@
  * BingMaps
  * */
 var retrievedQuery = false;
+var latitude = null;
+var longitude = null;
 
 /* Function takes in coordinates and creates the
  * BingMaps based off them.
@@ -45,7 +47,9 @@ function geocode(city, state) {
   }).then(function (response) {
     var geocode =
       response.resourceSets[0].resources[0].geocodePoints[0].coordinates;
-
+    latitude = geocode[0];
+    longitude = geocode[1];
+    restaurantSearch();
     console.log(geocode);
 
     retrievedQuery = true;
@@ -82,5 +86,43 @@ $(document).ready(function () {
       console.log(searchGeocode);
       getMap(searchGeocode);
     }
+
+    var fruit = ["kiwi", "orange"];
+    console.log(fruit);
+
+
   });
+
 });
+
+function restaurantSearch() {
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": `https://tripadvisor1.p.rapidapi.com/restaurants/list-by-latlng?limit=3&currency=USD&distance=2&lunit=km&lang=en_US&latitude=${latitude}&longitude=${longitude}`,
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+      "x-rapidapi-key": "adb75d27cfmshe591e88122b81ffp14a2e1jsnaed0acc3fb97"
+    }
+  }
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    let myRes = response.data
+    for (var i = 0; i < myRes.length; i++) {
+      var wrapper = $("<div>")
+      wrapper.attr("class", "Pleasechangeme")
+      var pTag = $("<p>")
+      pTag.text(myRes[i].name)
+      var phone = $("<p>")
+      phone.text("Tell: " + myRes[i].phone)
+
+      // after creating all the tags we have to append them to the wrapper and then append the wrapper to the div with the class of restuarant 
+      wrapper.append(pTag, phone)
+      $(".restaurant").append(wrapper)
+    }
+
+  });
+
+}
