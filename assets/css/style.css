@@ -1,13 +1,13 @@
 body {
-  background: url(./trees\ 2.jpg) no-repeat center center fixed; 
+  background: url(../images/trees2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;  
+  background-size: cover;
 }
 
 .container1 {
-  width:250px;
+  width: 250px;
   background-color: #e4e338;
   border-style: solid;
   border-width: 8px;
@@ -17,24 +17,24 @@ body {
 
 .container2 {
   width: 75%;
-  background-color:#e4e338;
+  background-color: #e4e338;
   border-style: solid;
   border-width: 8px;
   border-color: white;
   padding-bottom: 7px;
 }
 
-.container3{
+.container3 {
   margin-top: 15px;
-  width:250px;
+  width: 250px;
   border-style: solid;
   border-width: 8px;
   border-color: white;
   color: white;
 }
 
-.restaurant{
-  margin-top:15px;
+.restaurant {
+  margin-top: 15px;
   width: 250px;
   background-color: #e4e338;
   border-style: solid;
@@ -42,16 +42,16 @@ body {
   border-color: white;
 }
 
-.parkMap {
+#parkMap {
   margin-top: 15px;
   width: 600px;
   height: 400px;
-  background-color:#e4e338;
+  background-color: #e4e338;
   border-style: solid;
   border-width: 5px;
   border-color: white;
 }
 
-.Pleasechangeme{
+.Pleasechangeme {
   background-color: #aae241;
 }

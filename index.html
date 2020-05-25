@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project One</title>
+    <title>My Park Finder</title>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <link
       rel="stylesheet"
@@ -145,9 +145,31 @@
               </div>
             </div>
           </div>
+
+          <script type="text/javascript">
+            function GetMap() {
+              var map = new Microsoft.Maps.Map("#parkMap", {
+                showZoomButtons: false,
+                showDashboard: false,
+                disableZooming: true,
+                disableScrollWheelZoom: true,
+                showLocateMeButton: false,
+                disablePanning: true,
+              });
+
+              map.setView({
+                mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+                center: new Microsoft.Maps.Location(34.052235, -118.243683),
+                zoom: 10,
+              });
+
+              //Add your post map load code here.
+            }
+          </script>
+
           <div class="container4 ml-5">
             <div class="col-md-12">
-              <div class="parkMap">
+              <div id="parkMap">
                 <h5>Park Map</h5>
               </div>
             </div>
