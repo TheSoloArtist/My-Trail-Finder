@@ -135,7 +135,7 @@ $(document).ready(function () {
     var state = $("#searchQueryState").val().trim();
 
     console.log(city + ", " + state);
-
+    
     currLocation.geocode(city, state);
   });
 });
