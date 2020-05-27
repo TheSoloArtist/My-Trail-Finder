@@ -147,8 +147,10 @@
           </div>
 
           <script>
+            var map;
+
             function GetMap() {
-              var map = new Microsoft.Maps.Map("#parkMap", {
+              map = new Microsoft.Maps.Map("#parkMap", {
                 showZoomButtons: false,
                 showDashboard: false,
                 disableZooming: true,
@@ -166,20 +168,6 @@
                 zoom: 10,
               });
             }
-
-            /*$("#retrievedGeocode").on("click", function () {
-              console.log("Retrieved Click");
-              console.log(currLocation.latitude);
-              console.log(currLocation.longitude);
-              map.setView({
-                mapTypeId: Microsoft.Maps.MapTypeId.aerial,
-                center: new Microsoft.Maps.Location(
-                  currLocation.latitude,
-                  currLocation.longitude
-                ),
-                zoom: 10,
-              });
-            });*/
           </script>
           <div class="container4 ml-5">
             <div class="col-md-12">

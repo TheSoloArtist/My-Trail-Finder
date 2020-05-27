@@ -21,12 +21,21 @@ let currLocation = {
     }).then(function (response) {
       var geocode =
         response.resourceSets[0].resources[0].geocodePoints[0].coordinates;
-      this.latitude = geocode[0];
-      this.longitude = geocode[1];
+      currLocation.latitude = geocode[0];
+      currLocation.longitude = geocode[1];
       restaurantSearch();
-      console.log(this.latitude);
-      console.log(this.longitude);
-      //$("#retrievedGeocode").trigger("click");
+
+      console.log(currLocation.latitude);
+      console.log(currLocation.longitude);
+
+      map.setView({
+        mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+        center: new Microsoft.Maps.Location(
+          currLocation.latitude,
+          currLocation.longitude
+        ),
+        zoom: 10,
+      });
     });
   },
 };
