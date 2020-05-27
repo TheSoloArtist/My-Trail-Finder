@@ -135,57 +135,7 @@ $(document).ready(function () {
     var state = $("#searchQueryState").val().trim();
 
     console.log(city + ", " + state);
-
-<<<<<<< HEAD
-    var searchGeocode = geocode(city, state);
-
-    console.log("Searching for city..");
-
-    if (retrievedQuery === true) {
-      retrievedQuery = false;
-      console.log(searchGeocode);
-      getMap(searchGeocode);
-    }
-
-    var fruit = ["kiwi", "orange"];
-    console.log(fruit);
-
-
-     
-  });
-
-});
-
-function restaurantSearch() {
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": `https://tripadvisor1.p.rapidapi.com/restaurants/list-by-latlng?limit=3&currency=USD&distance=2&lunit=km&lang=en_US&latitude=${latitude}&longitude=${longitude}`,
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-      "x-rapidapi-key": "adb75d27cfmshe591e88122b81ffp14a2e1jsnaed0acc3fb97"
-    }
-  }
-
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    let myRes = response.data
-    for (var i = 0; i < myRes.length; i++) {
-      var wrapper = $("<div>")
-      wrapper.attr("class", "Pleasechangeme")
-      var pTag = $("<p>")
-      pTag.text(myRes[i].name)
-      var phone = $("<p>")
-      phone.text("Tell: " + myRes[i].phone)
-
-      // after creating all the tags we have to append them to the wrapper and then append the wrapper to the div with the class of restuarant 
-      wrapper.append(pTag, phone)
-      $(".restaurant").append(wrapper)
-    }
-
-=======
+    
     currLocation.geocode(city, state);
->>>>>>> 049fa069a17dbbb1df6ea0ba8d3113a1a82732be
   });
 });
