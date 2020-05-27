@@ -154,9 +154,8 @@
                 showZoomButtons: false,
                 showDashboard: false,
                 disableZooming: true,
-                disableScrollWheelZoom: true,
+                disableScrollWheelZoom: false,
                 showLocateMeButton: false,
-                disablePanning: true,
               });
 
               map.setView({
@@ -167,6 +166,8 @@
                 ),
                 zoom: 10,
               });
+
+              console.log(map.getCenter());
             }
           </script>
           <div class="container4 ml-5">

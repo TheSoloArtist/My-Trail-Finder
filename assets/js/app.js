@@ -36,6 +36,8 @@ let currLocation = {
         ),
         zoom: 10,
       });
+
+      addHikingTrails();
     });
   },
 };
@@ -70,11 +72,60 @@ function restaurantSearch() {
   });
 }
 
+function addHikingTrails() {
+  var trailsUrl =
+    "https://www.hikingproject.com/data/get-trails?lat=" +
+    currLocation.latitude +
+    "&lon=" +
+    currLocation.longitude +
+    "&maxDistance=50&key=" +
+    config.HIKING_API;
+
+  $.ajax({
+    url: trailsUrl,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    var trails = response.trails;
+
+    console.log("ranpushpins");
+    console.log(trails);
+
+    var pin = new Microsoft.Maps.Pushpin(
+      { latitude: currLocation.latitude, longitude: currLocation.longitude },
+      {
+        title: "You are here",
+        color: "red",
+        subTitle: "Subtitle",
+        text: "You are here",
+      }
+    );
+
+    map.entities.push(pin);
+
+    for (var i = 0; i < trails.length; i++) {
+      console.log("Added pushpin" + trails[i].name);
+
+      var pin = new Microsoft.Maps.Pushpin(
+        { latitude: trails[i].latitude, longitude: trails[i].longitude },
+        {
+          title: trails[i].name,
+          subTitle: trails[i].type,
+          text: trails[i].name,
+        }
+      );
+
+      map.entities.push(pin);
+    }
+  });
+}
+
 $(document).ready(function () {
   /* When the search button is clicked, it takes
    * the searchbar input to "city" and the drop
    * down value to the state.
    */
+  addHikingTrails();
 
   $("#searchSubmit").on("click", function () {
     event.preventDefault();
