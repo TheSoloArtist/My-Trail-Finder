@@ -40,6 +40,39 @@ let currLocation = {
       addHikingTrails();
     });
   },
+
+  geocodeOnlyState: function (state) {
+    var geocodeURL =
+      "http://dev.virtualearth.net/REST/v1/Locations?CountryRegion=US&adminDistrict=" +
+      state +
+      "&key=" +
+      config.BING_MAPS_API;
+
+    $.ajax({
+      url: geocodeURL,
+      method: "GET",
+    }).then(function (response) {
+      var geocode =
+        response.resourceSets[0].resources[0].geocodePoints[0].coordinates;
+      currLocation.latitude = geocode[0];
+      currLocation.longitude = geocode[1];
+      restaurantSearch();
+
+      console.log(currLocation.latitude);
+      console.log(currLocation.longitude);
+
+      map.setView({
+        mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+        center: new Microsoft.Maps.Location(
+          currLocation.latitude,
+          currLocation.longitude
+        ),
+        zoom: 10,
+      });
+
+      addHikingTrails();
+    });
+  },
 };
 
 function restaurantSearch() {
@@ -70,6 +103,16 @@ function restaurantSearch() {
       $(".restaurant").append(wrapper);
     }
   });
+}
+
+function isAlphanet(string) {
+  var letters = /^[A-Za-z]+$/;
+
+  if (string.match(letters)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function addHikingTrails() {
@@ -193,11 +236,21 @@ $(document).ready(function () {
     event.preventDefault();
 
     var city = $("#searchQueryCity").val().trim();
-    city = city.toLowerCase();
+    city = city.replace(/ +/g, "");
+    console.log(city);
     var state = $("#searchQueryState").val().trim();
 
-    console.log(city + ", " + state);
+    if (city != "" && isAlphanet(city)) {
+      city = city.toLowerCase();
 
-    currLocation.geocode(city, state);
+      console.log(city + ", " + state);
+
+      currLocation.geocode(city, state);
+    } else if (city == "") {
+      currLocation.geocodeOnlyState(state);
+      console.log(state);
+    } else {
+      console.log("Invalid characters; I refuse to run.");
+    }
   });
 });
