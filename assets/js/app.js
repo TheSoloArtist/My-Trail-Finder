@@ -1,7 +1,7 @@
-/* This is used to ensure the getMap function is not
- * added until the coordinates are retrieved from
- * BingMaps
- * */
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+
 let currLocation = {
   latitude: 34.052235,
   longitude: -118.243683,
