@@ -245,7 +245,7 @@ $(document).ready(function () {
     console.log(isAlphanet(city));
     var state = $("#searchQueryState").val().trim();
 
-    if (city != "") {
+    if (city != "" && isAlphanet(city)) {
       city = city.toLowerCase();
 
       console.log(city + ", " + state);
