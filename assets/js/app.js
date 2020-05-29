@@ -207,7 +207,15 @@ function addHikingTrails() {
 
       var addFavDiv = $("<div>");
       addFavDiv.attr("class", "addFavDiv");
-      addFavDiv.html("<button class='parkBtn'>Add to List</button>");
+      addFavDiv.html(
+        "<button class='parkBtn' onclick='addToList(" +
+          trails[i].name +
+          ", " +
+          tPicSrc +
+          ", " +
+          trails[i].summary +
+          ")'>Add to List</button>"
+      );
 
       var getDirDiv = $("<div>");
       getDirDiv.attr("class", "getDirDiv");
@@ -229,7 +237,9 @@ function addHikingTrails() {
   });
 }
 
-function addToList() {}
+function addToList(listName, listImgUrl, listDesc) {
+  //Add Code
+}
 
 $(document).ready(function () {
   /* When the search button is clicked, it takes
