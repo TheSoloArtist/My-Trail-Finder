@@ -106,17 +106,15 @@ function restaurantSearch() {
   });
 }
 
-/* Working on a function that ensures only letters and spaces can be put into search bar
-
 function isAlphanet(string) {
-  var letters = /^[A-Za-z]+$/;
+  var letters = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
 
   if (string.match(letters)) {
     return true;
   } else {
     return false;
   }
-}*/
+}
 
 function addHikingTrails() {
   $("#nearbyeParks").html("");
@@ -237,7 +235,6 @@ $(document).ready(function () {
    * the searchbar input to "city" and the drop
    * down value to the state.
    */
-  updateAndPullDatabase();
   $(".replaceWithUser").html(user.name);
   addHikingTrails();
 
@@ -245,7 +242,7 @@ $(document).ready(function () {
     event.preventDefault();
 
     var city = $("#searchQueryCity").val().trim();
-    console.log(city);
+    console.log(isAlphanet(city));
     var state = $("#searchQueryState").val().trim();
 
     if (city != "") {
