@@ -159,3 +159,18 @@ body {
 .aboutUserPic {
   border-radius: 50%;
 }
+
+.usernameText {
+  display: inline-block;
+  margin: 10px;
+}
+
+.scoreText {
+  display: inline-block;
+  margin: 10px;
+}
+
+.leaderText {
+  display: inline-block;
+  margin: 10px;
+}
