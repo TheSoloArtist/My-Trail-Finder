@@ -1,4 +1,4 @@
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config.firebaseConfig);
 
 var database = firebase.database();
 
@@ -117,6 +117,11 @@ function isAlphanet(string) {
 
 function addHikingTrails() {
   $("#nearbyeParks").html("");
+  var bgRanNum = Math.floor(Math.random() * 7);
+  $("body,html").css(
+    "background-image",
+    "url('./assets/images/backgrounds/0" + bgRanNum + ".jpg')"
+  );
   var trailsUrl =
     "https://www.hikingproject.com/data/get-trails?lat=" +
     currLocation.latitude +
@@ -207,7 +212,7 @@ function addHikingTrails() {
       var getDirDiv = $("<div>");
       getDirDiv.attr("class", "getDirDiv");
       getDirDiv.html(
-        `<input type="button" class="parkBtn" onclick="location.href=' ${trails[i].url} ';" value="More Info" />`
+        `<a class="parkBtn" href="${trails[i].url}" target="_blank">More info</a>`
       );
 
       tButtonDiv.append(addFavDiv);
@@ -224,12 +229,16 @@ function addHikingTrails() {
   });
 }
 
+function addToList() {}
+
 $(document).ready(function () {
   /* When the search button is clicked, it takes
    * the searchbar input to "city" and the drop
    * down value to the state.
    */
 
+  $(".replaceWithUser").html(user.name);
+  $(".replaceWithUserDesc").html(user.desc);
   addHikingTrails();
 
   $("#searchSubmit").on("click", function () {
