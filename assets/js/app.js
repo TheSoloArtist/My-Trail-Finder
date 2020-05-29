@@ -76,6 +76,7 @@ let currLocation = {
 };
 
 function restaurantSearch() {
+  $(".restaurant").html("<h5>Resturants Nearby</h5>");
   var settings = {
     async: true,
     crossDomain: true,
@@ -105,6 +106,8 @@ function restaurantSearch() {
   });
 }
 
+/* Working on a function that ensures only letters and spaces can be put into search bar
+
 function isAlphanet(string) {
   var letters = /^[A-Za-z]+$/;
 
@@ -113,7 +116,7 @@ function isAlphanet(string) {
   } else {
     return false;
   }
-}
+}*/
 
 function addHikingTrails() {
   $("#nearbyeParks").html("");
@@ -207,15 +210,7 @@ function addHikingTrails() {
 
       var addFavDiv = $("<div>");
       addFavDiv.attr("class", "addFavDiv");
-      addFavDiv.html(
-        "<button class='parkBtn' onclick='addToList(" +
-          trails[i].name +
-          ", " +
-          tPicSrc +
-          ", " +
-          trails[i].summary +
-          ")'>Add to List</button>"
-      );
+      addFavDiv.html(`<a class="parkBtn" onclick="">I Hiked This!</a>`);
 
       var getDirDiv = $("<div>");
       getDirDiv.attr("class", "getDirDiv");
@@ -237,12 +232,6 @@ function addHikingTrails() {
   });
 }
 
-function addToList(listName, listImgUrl, listDesc) {
-  user.toHike.push({ name: listName, imgUrl: listImgUrl, listDesc: listDesc });
-}
-
-function updateAndPullDatabase() {}
-
 $(document).ready(function () {
   /* When the search button is clicked, it takes
    * the searchbar input to "city" and the drop
@@ -250,18 +239,16 @@ $(document).ready(function () {
    */
   updateAndPullDatabase();
   $(".replaceWithUser").html(user.name);
-  $(".replaceWithUserDesc").html(user.desc);
   addHikingTrails();
 
   $("#searchSubmit").on("click", function () {
     event.preventDefault();
 
     var city = $("#searchQueryCity").val().trim();
-    city = city.replace(/ +/g, "");
     console.log(city);
     var state = $("#searchQueryState").val().trim();
 
-    if (city != "" && isAlphanet(city)) {
+    if (city != "") {
       city = city.toLowerCase();
 
       console.log(city + ", " + state);
@@ -270,8 +257,6 @@ $(document).ready(function () {
     } else if (city == "") {
       currLocation.geocodeOnlyState(state);
       console.log(state);
-    } else {
-      console.log("Invalid characters; I refuse to run.");
     }
   });
 });
