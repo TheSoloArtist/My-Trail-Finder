@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Park Finder</title>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <link
       rel="stylesheet"
@@ -17,12 +18,24 @@
       async
       defer
     ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
     <script src="assets/config/config.js"></script>
+    <script src="assets/js/user.js"></script>
     <script src="assets/js/app.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
+    <div class="navbar">
+      <div class="float-right usernameDiv">
+        <div class="usernameIcon"></div>
+        <div class="my-auto usernameText">
+          <a href="userProf.html" class="replaceWithUser"></a>
+        </div>
+      </div>
+    </div>
+
     <div class="container no-gutters wrapper1 mt-5">
       <div class="row">
         <div class="col-md-4">
@@ -86,7 +99,7 @@
                 <input
                   id="searchQueryCity"
                   type="text"
-                  placeholder="City"
+                  placeholder="City only, no numbers"
                 /><select id="searchQueryState" name="cars" placeholder="State">
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -173,6 +186,7 @@
               <div id="parkMap">
                 <h5>Park Map</h5>
               </div>
+              <div id="nearbyeParks"></div>
             </div>
           </div>
         </div>

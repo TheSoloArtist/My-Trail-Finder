@@ -6,6 +6,27 @@ body {
   background-size: cover;
 }
 
+.usernameDiv {
+  background-color: #e4e338;
+  padding: 5px;
+  width: 100%;
+  border: 8px white solid;
+  text-align: center;
+}
+
+.usernameIcon {
+  display: inline-block;
+  background-image: url(../images/profPics/04.png);
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.usernameText {
+  display: inline-block;
+}
+
 .container1 {
   width: 250px;
   background-color: #e4e338;
@@ -54,4 +75,87 @@ body {
 
 .Pleasechangeme {
   background-color: #aae241;
+}
+
+#nearbyeParks {
+  margin-top: 15px;
+  width: 600px;
+  height: 400px;
+  overflow: auto;
+  background-color: #e4e338;
+  border: 5px white solid;
+}
+
+.tContDiv {
+  display: block;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  width: 45%;
+  height: 350px;
+  background-color: #aae241;
+  text-align: center;
+  border-radius: 25px;
+  font-size: 12px;
+  overflow: auto;
+}
+
+.tPicImg {
+  border-radius: 25px;
+  margin: 3px;
+}
+
+.tButtonDiv {
+  width: 100%;
+}
+
+.parkBtn {
+  float: left;
+  font: 8px;
+  font-weight: bold;
+  margin: 5px;
+  width: 40%;
+  height: 50px;
+  padding: 5%;
+  background-color: #228b22;
+  border: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.tDescDiv {
+  text-align: left;
+}
+
+/* User Page related stuff */
+.toHikeCol {
+  background-color: #e4e338;
+  border: 5px white solid;
+}
+
+.toHikeCol {
+  background-color: #e4e338;
+  border: 5px white solid;
+}
+
+.aboutUserDiv {
+  background-color: #aae241;
+  border: 5px white solid;
+}
+
+.userHikedDiv {
+  background-color: #e4e338;
+  border: 5px white solid;
+}
+
+.aboutUserText {
+  display: inline-block;
+}
+
+.aboutUserPicDiv {
+  display: inline-block;
+}
+
+.aboutUserPic {
+  border-radius: 50%;
 }
