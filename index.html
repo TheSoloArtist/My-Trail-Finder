@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Park Finder</title>
+    <title>My Trail Finder</title>
     <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <link
@@ -28,10 +28,10 @@
 
   <body>
     <div class="navbar">
-      <div class="float-right usernameDiv">
-        <div class="usernameIcon"></div>
-        <div class="my-auto usernameText">
-          <span class="replaceWithUser"></span>
+      <div class="usernameDiv">
+        <div class="usernameText"><b>Username:</b> <span class="replaceWithUser"></span></div>
+        <div class="scoreText"><b>Score:</b> <span class="replaceWithScore"></span></div>
+        <div class="leaderText"><a href="#">Leader Board</a></div>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
             <div class="col-md-12">
               <div class="container1 ml-5">
                 <div class="park-finder">
-                  <h3>My Park Finder</h3>
+                  <h3>My Trail Finder</h3>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@
           <div class="container2 ml-5">
             <div class="col-md-12">
               <div class="search-park">
-                <h3>Search Local and State Parks</h3>
+                <h3>Search for a Trail</h3>
 
                 <input
                   id="searchQueryCity"

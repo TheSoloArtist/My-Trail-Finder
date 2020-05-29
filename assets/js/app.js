@@ -236,6 +236,7 @@ $(document).ready(function () {
    * down value to the state.
    */
   $(".replaceWithUser").html(user.name);
+  $(".replaceWithScore").html(user.score);
   addHikingTrails();
 
   $("#searchSubmit").on("click", function () {
