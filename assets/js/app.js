@@ -238,15 +238,17 @@ function addHikingTrails() {
 }
 
 function addToList(listName, listImgUrl, listDesc) {
-  //Add Code
+  user.toHike.push({ name: listName, imgUrl: listImgUrl, listDesc: listDesc });
 }
+
+function updateAndPullDatabase() {}
 
 $(document).ready(function () {
   /* When the search button is clicked, it takes
    * the searchbar input to "city" and the drop
    * down value to the state.
    */
-
+  updateAndPullDatabase();
   $(".replaceWithUser").html(user.name);
   $(".replaceWithUserDesc").html(user.desc);
   addHikingTrails();
