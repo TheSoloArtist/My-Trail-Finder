@@ -36,6 +36,8 @@ let currLocation = {
       currLocation.latitude = geocode[0];
       currLocation.longitude = geocode[1];
 
+      // Checks the weather according to geocode
+      checkWeather();
       // Searches for restaurants near current geocode
       restaurantSearch();
 
@@ -74,6 +76,8 @@ let currLocation = {
       currLocation.latitude = geocode[0];
       currLocation.longitude = geocode[1];
 
+      // Checks weather based on geocode
+      checkWeather();
       // Searches for restaurants near current geocode
       restaurantSearch();
 
@@ -183,7 +187,7 @@ function addHikingTrails() {
         { latitude: trails[i].latitude, longitude: trails[i].longitude },
         {
           title: trails[i].name,
-          color: "green",
+          color: "yellow",
           subTitle: trails[i].type,
         }
       );
@@ -276,6 +280,31 @@ function addHikingTrails() {
   });
 }
 
+function checkWeather() {
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?lat=" +
+    currLocation.latitude +
+    "&lon=" +
+    currLocation.longitude +
+    "&appid=" +
+    config.WEATHER_API;
+
+  // Here we run our AJAX call to the OpenWeatherMap API
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function (response) {
+      console.log(response);
+      var weatherPlace = response.name;
+      var weatherType = response.weather[0].main;
+
+      $(".replaceWithPlace").html(weatherPlace);
+      $(".replaceWithWeatherType").html(weatherType);
+    });
+}
+
 // When trail button clicked, user says they hiked it and automatically get a point.
 // Needs to be updated to include check for previous hikes.
 // Also needs to ask user to input comments on their hike.
@@ -302,6 +331,7 @@ $(document).ready(function () {
   $(".replaceWithUser").html(user.name);
   $(".replaceWithScore").html(user.score);
 
+  checkWeather();
   // Adds hiking trails for initial geocode
   addHikingTrails();
 
