@@ -310,6 +310,7 @@ function checkWeather() {
 // Also needs to ask user to input comments on their hike.
 // Also needs to take in info about trail for future use
 function addToList(trailName) {
+  event.preventDefault();
   user.score++;
 
   database.ref().set({
