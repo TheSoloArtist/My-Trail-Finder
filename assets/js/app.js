@@ -76,7 +76,7 @@ let currLocation = {
 };
 
 function restaurantSearch() {
-  $(".restaurant").html("<h5>Resturants Nearby</h5>");
+  $(".restaurant").html("<h5>Restaurants Nearby</h5>");
   var settings = {
     async: true,
     crossDomain: true,
@@ -99,7 +99,7 @@ function restaurantSearch() {
       var phone = $("<p>");
       phone.text("Tell: " + myRes[i].phone);
 
-      // after creating all the tags we have to append them to the wrapper and then append the wrapper to the div with the class of restuarant
+      // after creating all the tags we have to append them to the wrapper and then append the wrapper to the div with the class of restaurant
       wrapper.append(pTag, phone);
       $(".restaurant").append(wrapper);
     }
@@ -246,7 +246,7 @@ $(document).ready(function () {
     console.log(isAlphanet(city));
     var state = $("#searchQueryState").val().trim();
 
-    if (city != "" && isAlphanet(city)) {
+      if (city != "" && isAlphanet(city)) {
       city = city.toLowerCase();
 
       console.log(city + ", " + state);
@@ -255,6 +255,19 @@ $(document).ready(function () {
     } else if (city == "") {
       currLocation.geocodeOnlyState(state);
       console.log(state);
+      
+      // *attempted to populate the seach bar into the weather Widget failed miserably through the i frame preventing me to get the id of the searchbar and the button of the widget.
+      // var inputValue = document.getElementById("myTextInputID").value;
+      // var textfield;
+
+      // function setup() {
+      //   noCanvas();
+      //   textfield = createInput();
+      //   textfield.changed(newText);
+      
+      // }
     }
   });
 });
+
+
