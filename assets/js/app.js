@@ -2,6 +2,11 @@ firebase.initializeApp(config.firebaseConfig);
 
 var database = firebase.database();
 
+let user = {
+  name: "Trailblazer",
+  score: 0,
+};
+
 let currLocation = {
   latitude: 34.052235,
   longitude: -118.243683,
@@ -208,7 +213,9 @@ function addHikingTrails() {
 
       var addFavDiv = $("<div>");
       addFavDiv.attr("class", "addFavDiv");
-      addFavDiv.html(`<a class="parkBtn" onclick="">I Hiked This!</a>`);
+      addFavDiv.html(
+        `<a class="parkBtn" href="#" onclick="addToList('${trails[i].name}');">I Hiked This!</a>`
+      );
 
       var getDirDiv = $("<div>");
       getDirDiv.attr("class", "getDirDiv");
@@ -230,6 +237,22 @@ function addHikingTrails() {
   });
 }
 
+function addToList(trailName) {
+  user.score++;
+
+  database.ref().set({
+    score: user.score,
+  });
+}
+
+database.ref().on("value", function (snapshot) {
+  console.log(snapshot.val());
+
+  user.score = snapshot.val().score;
+
+  $(".replaceWithScore").html(snapshot.val().score);
+});
+
 $(document).ready(function () {
   /* When the search button is clicked, it takes
    * the searchbar input to "city" and the drop
@@ -243,7 +266,6 @@ $(document).ready(function () {
     event.preventDefault();
 
     var city = $("#searchQueryCity").val().trim();
-    console.log(isAlphanet(city));
     var state = $("#searchQueryState").val().trim();
 
     if (city != "" && isAlphanet(city)) {
