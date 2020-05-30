@@ -61,7 +61,7 @@ body {
 
 .container2 {
   margin-top: 15px;
-  width: 88%;
+  width: 88.5%;
   background-color: #e4e338;
   border-style: solid;
   border-width: 8px;
@@ -95,12 +95,13 @@ body {
 
 #parkMap {
   margin-top: 15px;
-  width: 95%;
+  width: 90%;
   height: 400px;
   background-color: #e4e338;
   border-style: solid;
   border-width: 5px;
   border-color: white;
+  margin-left: 15px;
 }
 
 .Pleasechangeme {
@@ -109,11 +110,13 @@ body {
 
 #nearbyeParks {
   margin-top: 15px;
-  width: 95%;
+  width: 90%;
   height: 400px;
   overflow: auto;
   background-color: #e4e338;
   border: 5px white solid;
+  margin-left: 15px;
+  margin-bottom: 30px;
 }
 
 .tContDiv {
