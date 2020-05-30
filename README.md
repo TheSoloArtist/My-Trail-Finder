@@ -6,7 +6,7 @@ Search for hiking trails near you and receive more information on them.
 
 ## Motivation
 
----
+Encouraging people to get outside and explore!
 
 ## Build Status
 
