@@ -102,7 +102,7 @@ let currLocation = {
 
 // Searches for 3 restaurants near given geocode and displays in its respective sidebar
 function restaurantSearch() {
-  $(".restaurant").html("<h5>Resturants Nearby</h5>"); // Clears the div before adding new results
+  $(".restaurant").html("<h5>Restaurants Nearby</h5>");
   var settings = {
     async: true,
     crossDomain: true,
@@ -125,7 +125,7 @@ function restaurantSearch() {
       var phone = $("<p>");
       phone.text("Tell: " + myRes[i].phone);
 
-      // after creating all the tags we have to append them to the wrapper and then append the wrapper to the div with the class of restuarant
+      // after creating all the tags we have to append them to the wrapper and then append the wrapper to the div with the class of restaurant
       wrapper.append(pTag, phone);
       $(".restaurant").append(wrapper);
     }
@@ -344,8 +344,7 @@ $(document).ready(function () {
     var city = $("#searchQueryCity").val().trim();
     var state = $("#searchQueryState").val().trim();
 
-    // If city input is not blank and the city is valid, it runs the geocode that requires city, state
-    if (city != "" && isAlphanet(city)) {
+      if (city != "" && isAlphanet(city)) {
       city = city.toLowerCase();
 
       console.log(city + ", " + state);
@@ -356,6 +355,19 @@ $(document).ready(function () {
     else if (city == "") {
       currLocation.geocodeOnlyState(state);
       console.log(state);
+      
+      // *attempted to populate the seach bar into the weather Widget failed miserably through the i frame preventing me to get the id of the searchbar and the button of the widget.
+      // var inputValue = document.getElementById("myTextInputID").value;
+      // var textfield;
+
+      // function setup() {
+      //   noCanvas();
+      //   textfield = createInput();
+      //   textfield.changed(newText);
+      
+      // }
     }
   });
 });
+
+
