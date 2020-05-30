@@ -37,7 +37,7 @@ body {
 }
 
 .container2 {
-  width: 75%;
+  width: 80%;
   background-color: #e4e338;
   border-style: solid;
   border-width: 8px;
@@ -65,7 +65,7 @@ body {
 
 #parkMap {
   margin-top: 15px;
-  width: 600px;
+  width: 85%;
   height: 400px;
   background-color: #e4e338;
   border-style: solid;
@@ -79,7 +79,7 @@ body {
 
 #nearbyeParks {
   margin-top: 15px;
-  width: 600px;
+  width: 85%;
   height: 400px;
   overflow: auto;
   background-color: #e4e338;
