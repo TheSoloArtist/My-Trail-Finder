@@ -35,6 +35,20 @@ body {
   margin: 5px;
 }
 
+#searchSubmit {
+  border: none;
+  padding: 4px;
+  background-color: #228b22;
+  color: white;
+  font-weight: bolder;
+  border-radius: 10px;
+}
+
+#searchSubmit:hover {
+  background-color: #e4e338;
+  color: #228b22;
+}
+
 .container1 {
   width: 250px;
   background-color: #e4e338;
@@ -64,7 +78,7 @@ body {
   color: white;
 }
 
-.restaurant {
+.container6 {
   margin-top: 15px;
   width: 250px;
   background-color: #e4e338;
@@ -125,12 +139,17 @@ body {
   font-weight: bold;
   margin: 5px;
   width: 40%;
-  height: 50px;
   padding: 5%;
   background-color: #228b22;
   border: none;
   color: white;
   border-radius: 10px;
+}
+
+.parkBtn:hover {
+  background-color: #aae241;
+  color: #228b22;
+  text-decoration: none;
 }
 
 .tDescDiv {

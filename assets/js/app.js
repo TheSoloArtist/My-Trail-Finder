@@ -214,13 +214,13 @@ function addHikingTrails() {
       var addFavDiv = $("<div>");
       addFavDiv.attr("class", "addFavDiv");
       addFavDiv.html(
-        `<a class="parkBtn" href="#" onclick="addToList('${trails[i].name}');">I Hiked This!</a>`
+        `<a class="parkBtn" href="" onclick="addToList('${trails[i].name}');">✓</a>`
       );
 
       var getDirDiv = $("<div>");
       getDirDiv.attr("class", "getDirDiv");
       getDirDiv.html(
-        `<a class="parkBtn" href="${trails[i].url}" target="_blank">More info</a>`
+        `<a class="parkBtn" href="${trails[i].url}" target="_blank">Info</a>`
       );
 
       tButtonDiv.append(addFavDiv);
